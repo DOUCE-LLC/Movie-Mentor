@@ -10,6 +10,17 @@ df = pd.read_pickle('./data/cleaned/movies.pkl')
 
 @router.get("/api/v1/director/{director}")
 def get_director(director: str):
+    """
+    Endpoint to retrieve information about movies directed by a specific director.
+
+    Args:
+        director (str): The name of the director.
+
+    Returns:
+        Response: JSON response containing information about the director's movies.
+    """
+    
+    # Filter the DataFrame to include only rows where the 'crew' column is not null and contains the specified director
     df1 = df[df['crew'].notna() & df['crew'].str.contains(director)]
     
     # Create a list to store the movie objects
@@ -44,8 +55,11 @@ def get_director(director: str):
         "average ROI": roi,
         "movies": movies
     }
-    
+
+    # Convert the data dictionary to JSON format
     json_data = json.dumps(data, indent=4)
+
+    # Create a JSON response with the JSON data
     response = Response(content=json_data, media_type="application/json")
     
     return response

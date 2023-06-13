@@ -5,11 +5,21 @@ import json
 # Import the FastAPI framework
 router = APIRouter()
  
-# # Read a CSV file containing movie data into a pandas DataFrame
+# Read a CSV file containing movie data into a pandas DataFrame
 df = pd.read_pickle('./data/cleaned/movies.pkl')
 
 @router.get("/api/v1/shoots_per_day/{day}")
 def shoots_per_day(day: int):
+    """
+    Endpoint to retrieve the number of movies released on a specific day.
+
+    Args:
+        day (int): The day of the month.
+
+    Returns:
+        Response: JSON response containing the number of movies released on the specified day.
+    """
+
     # Filter the DataFrame to include only movies released on the specified day
     df1 = df[pd.to_datetime(df["release_date"]).dt.day == day]
     

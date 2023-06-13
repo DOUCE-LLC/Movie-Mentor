@@ -10,6 +10,16 @@ df = pd.read_pickle('./data/cleaned/movies.pkl')
 
 @router.get("/api/v1/actor/{actor}")
 def get_actor(actor: str):
+    """
+    Endpoint to retrieve information about movies featuring a specific actor.
+
+    Args:
+        actor (str): The name of the actor.
+
+    Returns:
+        Response: JSON response containing information about the actor's movies.
+    """
+    
     # Filter the DataFrame to include only rows where the 'cast' column is not null and contains the specified actor
     df1 = df[df['cast'].notna() & df['cast'].str.contains(actor)]
     

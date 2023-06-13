@@ -10,6 +10,16 @@ df = pd.read_pickle('./data/cleaned/movies.pkl')
 
 @router.get("/api/v1/title_score/{title}")
 def score_title(title: str):
+    """
+    Endpoint to retrieve the score of a movie by its title.
+
+    Args:
+        title (str): The title of the movie.
+
+    Returns:
+        Response: JSON response containing the title, release year, and vote average of the movie.
+    """
+  
     # Filter the DataFrame to include only rows where the 'title' column is not null and matches the specified title
     df1 = df[df['title'].notna() & (df['title'] == title)]
 

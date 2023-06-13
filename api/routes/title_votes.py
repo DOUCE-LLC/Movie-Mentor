@@ -10,6 +10,16 @@ df = pd.read_pickle('./data/cleaned/movies.pkl')
 
 @router.get("/api/v1/title_votes/{title}")
 def title_votes(title: str):
+    """
+    Endpoint to retrieve the vote count and vote average of a movie by its title.
+
+    Args:
+        title (str): The title of the movie.
+
+    Returns:
+        Response: JSON response containing the title, vote count, and vote average of the movie.
+    """
+        
     # Filter the DataFrame to include only rows where the 'title' column is not null, matches the specified title,
     # and has a vote count of at least 2000
     df1 = df[df['title'].notna() & (df['title'] == title) & (df['vote_count'] >= 2000)]

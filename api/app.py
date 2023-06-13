@@ -39,13 +39,13 @@ def read_root():
     # Return the response object
     return response
 
-app.include_router(get_actor.router) # /api/v1/actor/Mark%20Hamill
-app.include_router(get_director.router)  # /api/v1/director/George%20Lucas
-app.include_router(shoots_per_day.router) # /api/v1/shoots_per_day/13
-app.include_router(shoots_per_month.router) # /api/v1/shoots_per_month/1
-app.include_router(title_score.router) # /api/v1/title_score/Star%20Wars
-app.include_router(title_votes.router) # /api/v1/title_votes/Star%20Wars
-app.include_router(movies_by_genre.router) # /api/v1/movies_by_genre/Cience%20Fiction
-app.include_router(recommendations.router) # /api/v1/recommendations/5/Star%20Wars
-app.include_router(recommendations2.router) # /api/v1/recommendations2/5/Star%20Wars
-app.include_router(get_movie.router) # /api/v1/recommendations/Star%20Wars
+app.include_router(get_actor.router)            # /api/v1/actor/Mark%20Hamill
+app.include_router(get_director.router)         # /api/v1/director/George%20Lucas
+app.include_router(shoots_per_day.router)       # /api/v1/shoots_per_day/13
+app.include_router(shoots_per_month.router)     # /api/v1/shoots_per_month/1
+app.include_router(title_score.router)          # /api/v1/title_score/Star%20Wars
+app.include_router(title_votes.router)          # /api/v1/title_votes/Star%20Wars
+app.include_router(movies_by_genre.router)      # /api/v1/movies_by_genre/Cience%20Fiction
+app.include_router(recommendations.router)      # /api/v1/recommendations/5/Star%20Wars
+app.include_router(recommendations2.router)     # /api/v1/recommendations2/5/Star%20Wars
+app.include_router(get_movie.router)            # /api/v1/movie/Star%20Wars
